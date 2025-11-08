@@ -1,0 +1,87 @@
+================================================================================
+STATISTICAL ARBITRAGE: OPTIMAL HEDGE RATIO ANALYSIS
+S&P 500 (MESZ5) vs NASDAQ (MNQZ5) Futures
+================================================================================
+
+1. DATA SUMMARY
+--------------------------------------------------------------------------------
+   Total Observations: 7,019
+   Date Range: 2025-10-01 09:31:00 to 2025-10-24 15:59:00
+   SPX Price Range: 6592.50 - 6840.75
+   NDX Price Range: 24389.00 - 25565.75
+
+2. OPTIMAL HEDGE RATIO (OLS REGRESSION)
+--------------------------------------------------------------------------------
+   Returns-Based Beta: 0.733367
+   Returns-Based R²: 0.917768
+   Price-Based Beta: 0.212006
+   Price-Based R²: 0.874127
+
+   Interpretation:
+      - For every 1% move in NDX, SPX moves 0.7334%
+      - Optimal hedge: 0.7334 units of NDX per unit of SPX
+
+3. ROLLING STATISTICS (120-period window)
+--------------------------------------------------------------------------------
+   Mean Rolling Correlation: 0.927319
+   Mean Rolling Beta: 0.735334
+   Mean Rolling R²: 0.863386
+
+4. COINTEGRATION TEST
+--------------------------------------------------------------------------------
+   Test Statistic: -2.063089
+   P-value: 0.495668
+   Result: ✗ NOT COINTEGRATED (p >= 0.05)
+
+5. STATIONARITY TESTS (Spread)
+--------------------------------------------------------------------------------
+   ADF Test:
+      Statistic: -36.600548
+      P-value: 0.000000
+      Result: ✓ STATIONARY (p < 0.05)
+
+   KPSS Test:
+      Statistic: 0.077848
+      P-value: 0.100000
+      Result: ✓ STATIONARY (p > 0.05)
+
+6. MEAN REVERSION (Half-Life)
+--------------------------------------------------------------------------------
+   AR(1) Coefficient (φ): -0.081035
+   Half-Life: 0.28 periods
+   Interpretation: Spread reverts 50% to mean in ~0 observations
+
+7. OPTIMAL POSITION SIZING
+--------------------------------------------------------------------------------
+   Initial Capital: $100,000.00
+   Hedge Ratio: 0.733367
+   SPX Allocation: $57,691.19 (LONG)
+   NDX Allocation: $42,308.81 (SHORT)
+   SPX Position: 8.4498 contracts
+   NDX Position: -1.6586 contracts
+
+8. BACKTEST PERFORMANCE
+--------------------------------------------------------------------------------
+   Total Return: 0.93%
+   Final Portfolio Value: $100,931.13
+   Sharpe Ratio: 8.4371
+   Maximum Drawdown: -0.22%
+   Number of Trades: 542
+
+9. TRADING STRATEGY
+--------------------------------------------------------------------------------
+   Entry Signal: When Z-score > ±2σ
+   Exit Signal: When Z-score < ±0.5σ
+   Position: SPX_Return - 0.7334 × NDX_Return
+   Type: Market-neutral, mean-reverting spread
+
+10. CONCLUSIONS
+--------------------------------------------------------------------------------
+   • SPX and NDX show strong correlation (0.9273)
+   • ✗ Weak cointegration evidence
+   • ✓ Spread is stationary (mean-reverting)
+   • Optimal hedge ratio: 0.7334
+   • Half-life of mean reversion: 0 periods
+   • Strategy Sharpe ratio: 8.44
+
+================================================================================
